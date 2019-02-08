@@ -42,7 +42,7 @@ beforeEach( () => {
   ep.setup( {
     elementSelectors,
     handler: ( result: PredictionResult ): void => {
-      resultSelector = result.selector;
+      resultSelector = result && result.selector;
     }
   } );
   ep.start();
@@ -70,7 +70,6 @@ test("Predict Bottom Right Button", () => {
 test("Predict Top Left Button and then nothing - Mouse move in and out", () => {
   moveMouse( 500, 250, 100, 50 );
   expect( resultSelector ).toBe( "#btnTopLeft" );
-  resultSelector = undefined;
   moveMouse( 100, 50, 200, 150 );
   expect( resultSelector ).toBeUndefined();
 });

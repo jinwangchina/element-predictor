@@ -2,7 +2,7 @@
   "name": "@jinwangchina/element-predictor",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Predict which element (DOM) the user wants to interact with so that your web app can react faster!",
   "scripts": {
     "test": "jest",

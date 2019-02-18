@@ -3,7 +3,8 @@
     "access": "public"
   },
   "git": {
-    "tagName": "release/${version}"
+    "tagName": "release/${version}",
+    "push": false
   },
   "github": {
     "release": true

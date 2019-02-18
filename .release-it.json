@@ -1,4 +1,5 @@
 {
+  "use": "pkg.version",
   "git": {
     "tagName": "release/${version}"
   },

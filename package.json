@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "release": "release-it"
+    "release": "release-it -n"
   },
   "repository": {
     "type": "git",

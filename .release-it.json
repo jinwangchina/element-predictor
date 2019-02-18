@@ -1,4 +1,7 @@
 {
+  "npm": {
+    "access": "public"
+  },
   "git": {
     "tagName": "release/${version}"
   },

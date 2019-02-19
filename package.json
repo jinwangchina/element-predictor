@@ -2,12 +2,15 @@
   "name": "@jinwangchina/element-predictor",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "version": "0.1.12",
+  "version": "0.0.0-development",
   "description": "Predict which element (DOM) the user wants to interact with so that your web app can react faster!",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "release": "release-it"
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,6 @@
     "jest": "^23.6.0",
     "@types/jest": "^23.3.14",
     "ts-jest": "^23.10.5",
-    "release-it": "^10.1.0"
+    "semantic-release": "^15.13.3"
   }
 }

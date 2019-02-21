@@ -35,15 +35,15 @@ var ElementPredictorImpl = /** @class */ (function () {
                 return;
             }
             var result = _this.predictResult(event);
-            if (result) {
-                _this.handler(result);
-            }
+            _this.handler(result);
         };
     };
     ElementPredictorImpl.prototype.predictResult = function (event) {
         var currentResult = this.getClosest(event);
         this.checkAndCount(currentResult);
-        return this.isResultToGo() && currentResult;
+        if (this.isResultToGo(currentResult)) {
+            return currentResult;
+        }
     };
     ElementPredictorImpl.prototype.getClosest = function (event) {
         var _this = this;
@@ -71,25 +71,15 @@ var ElementPredictorImpl = /** @class */ (function () {
     };
     ElementPredictorImpl.prototype.checkAndCount = function (currentResult) {
         // reset if the current result is not valid
-        if (!currentResult || currentResult.distance > 200) {
+        if (!currentResult
+            // reset if the closest element is changed
+            || (this.previousResult && this.previousResult.element !== currentResult.element)
+            // reset if mouse is moving away from the current element
+            || (this.previousResult && this.previousResult.distance < currentResult.distance)) {
             this.resetCounting();
             return;
         }
-        // count if it is the first time counting
-        if (!this.previousResult) {
-            this.count(currentResult);
-            return;
-        }
-        // reset if the closest element is changed
-        if (this.previousResult.element !== currentResult.element) {
-            this.resetCounting();
-            return;
-        }
-        // reset if mouse is moving away the current element
-        if (this.previousResult.distance < currentResult.distance) {
-            this.resetCounting();
-            return;
-        }
+        this.count(currentResult);
     };
     ElementPredictorImpl.prototype.resetCounting = function () {
         this.previousResult = undefined;
@@ -99,8 +89,8 @@ var ElementPredictorImpl = /** @class */ (function () {
         this.previousResult = currentResult;
         this.sameResultCount++;
     };
-    ElementPredictorImpl.prototype.isResultToGo = function () {
-        return this.sameResultCount > 10;
+    ElementPredictorImpl.prototype.isResultToGo = function (currentResult) {
+        return this.sameResultCount > 10 && currentResult.distance < 200;
     };
     ElementPredictorImpl.prototype.getElement = function (selector) {
         return document.querySelector(selector);
@@ -116,8 +106,8 @@ var ElementPredictorImpl = /** @class */ (function () {
         var elementRect = element.getBoundingClientRect();
         var elementX = elementRect.left + (elementRect.width / 2);
         var elementY = elementRect.top + (elementRect.height / 2);
-        var mouseX = event.pageX;
-        var mouseY = event.pageY;
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
         return Math.floor(Math.sqrt(Math.pow(mouseX - elementX, 2) + Math.pow(mouseY - elementY, 2)));
     };
     ElementPredictorImpl.prototype.registerDocumentListener = function () {

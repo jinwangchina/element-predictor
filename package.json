@@ -11,7 +11,8 @@
     "predict",
     "predictor",
     "prediction",
-    "mouse"
+    "mouse",
+    "mouse move"
   ],
   "bugs": {
     "url": "https://github.com/jinwangchina/element-predictor/issues"

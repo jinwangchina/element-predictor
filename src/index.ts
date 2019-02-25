@@ -1,6 +1,8 @@
 export interface PredictionParam {
   elementSelectors: string[];
   handler: PredictionHandler;
+  confidentDistance?: number;
+  confidentResultCount?: number;
 }
 
 export interface PredictionResult {
@@ -27,6 +29,8 @@ class ElementPredictorImpl implements ElementPredictor {
 
   private elementSelectors: string[];
   private handler: PredictionHandler;
+  private confidentDistance: number = 200;
+  private confidentResultCount: number = 10;
 
   private documentListener: EventListenerOrEventListenerObject;
 
@@ -37,6 +41,12 @@ class ElementPredictorImpl implements ElementPredictor {
     this.destroy();
     this.elementSelectors = param.elementSelectors;
     this.handler = param.handler;
+    if ( param.confidentDistance ) {
+      this.confidentDistance = param.confidentDistance;
+    }
+    if ( param.confidentResultCount ) {
+      this.confidentResultCount = param.confidentResultCount;
+    }
     this.documentListener = this.createDocumentListener();
     return this;
   }
@@ -131,7 +141,8 @@ class ElementPredictorImpl implements ElementPredictor {
   }
 
   private isResultToGo( currentResult: PredictionResult ) {
-    return this.sameResultCount > 10 && currentResult.distance < 200;
+    return this.sameResultCount > this.confidentResultCount
+        && currentResult.distance < this.confidentDistance;
   }
 
   private getElement( selector: string ): Element | null {

@@ -1,6 +1,8 @@
 export interface PredictionParam {
     elementSelectors: string[];
     handler: PredictionHandler;
+    confidentDistance?: number;
+    confidentResultCount?: number;
 }
 export interface PredictionResult {
     selector: string;
@@ -19,6 +21,8 @@ export interface ElementPredictor {
 declare class ElementPredictorImpl implements ElementPredictor {
     private elementSelectors;
     private handler;
+    private confidentDistance;
+    private confidentResultCount;
     private documentListener;
     private previousResult;
     private sameResultCount;

@@ -1,9 +1,23 @@
 {
   "name": "@jinwangchina/element-predictor",
+  "version": "0.0.0-development",
+  "license" : "Apache-2.0",
+  "description": "Predict which element (DOM) the user wants to interact with so that your web app can react faster!",
+  "author": "Jin Wang <jin.wang.china@gmail.com>",
+  "homepage": "https://github.com/jinwangchina/element-predictor#readme",
+  "keywords": [
+    "dom",
+    "element",
+    "predict",
+    "predictor",
+    "prediction",
+    "mouse"
+  ],
+  "bugs": {
+    "url": "https://github.com/jinwangchina/element-predictor/issues"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "version": "0.0.0-development",
-  "description": "Predict which element (DOM) the user wants to interact with so that your web app can react faster!",
   "publishConfig": {
     "access": "public"
   },

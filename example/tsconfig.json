@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "exclude": [ "dist", "node_modules" ]
+}

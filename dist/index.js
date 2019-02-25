@@ -2,12 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ElementPredictorImpl = /** @class */ (function () {
     function ElementPredictorImpl() {
+        this.confidentDistance = 200;
+        this.confidentResultCount = 10;
         this.sameResultCount = 0;
     }
     ElementPredictorImpl.prototype.setup = function (param) {
         this.destroy();
         this.elementSelectors = param.elementSelectors;
         this.handler = param.handler;
+        if (param.confidentDistance) {
+            this.confidentDistance = param.confidentDistance;
+        }
+        if (param.confidentResultCount) {
+            this.confidentResultCount = param.confidentResultCount;
+        }
         this.documentListener = this.createDocumentListener();
         return this;
     };
@@ -90,7 +98,8 @@ var ElementPredictorImpl = /** @class */ (function () {
         this.sameResultCount++;
     };
     ElementPredictorImpl.prototype.isResultToGo = function (currentResult) {
-        return this.sameResultCount > 10 && currentResult.distance < 200;
+        return this.sameResultCount > this.confidentResultCount
+            && currentResult.distance < this.confidentDistance;
     };
     ElementPredictorImpl.prototype.getElement = function (selector) {
         return document.querySelector(selector);

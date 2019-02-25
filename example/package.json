@@ -1,0 +1,20 @@
+{
+  "name": "element-predictor-example",
+  "version": "0.0.1",
+  "description": "Example for element-predictor.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.1",
+    "webpack": "^4.20.2",
+    "ts-loader": "^5.3.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@jinwangchina/element-predictor": "^1.0.0"
+  }
+}

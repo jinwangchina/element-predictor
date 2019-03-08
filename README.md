@@ -12,6 +12,10 @@ Predict which element (DOM) the user wants to interact with so that your web app
 ```
 npm install --save @jinwangchina/element-predictor
 ```
+or 
+```
+<script src="https://unpkg.com/@jinwangchina/element-predictor"></script>
+```
 
 ## Usage
 ##### Generic - html

@@ -1,7 +1,7 @@
 {
   "name": "@jinwangchina/element-predictor",
   "version": "0.0.0-development",
-  "license" : "Apache-2.0",
+  "license": "Apache-2.0",
   "description": "Predict which element (DOM) the user wants to interact with so that your web app can react faster!",
   "author": "Jin Wang <jin.wang.china@gmail.com>",
   "homepage": "https://github.com/jinwangchina/element-predictor#readme",
@@ -17,14 +17,16 @@
   "bugs": {
     "url": "https://github.com/jinwangchina/element-predictor/issues"
   },
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/commonjs/element-predictor.js",
+  "browser": "dist/umd/element-predictor.js",
+  "unpkg": "dist/umd/element-predictor.js",
+  "typings": "dist/commonjs/element-predictor.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "build": "tsc && webpack",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -33,6 +35,9 @@
   },
   "devDependencies": {
     "typescript": "^3.3.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "ts-loader": "^5.3.3",
     "jest": "^23.6.0",
     "@types/jest": "^23.3.14",
     "ts-jest": "^23.10.5",

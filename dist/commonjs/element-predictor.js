@@ -128,4 +128,3 @@ var ElementPredictorImpl = /** @class */ (function () {
     return ElementPredictorImpl;
 }());
 exports.default = new ElementPredictorImpl();
-//# sourceMappingURL=index.js.map

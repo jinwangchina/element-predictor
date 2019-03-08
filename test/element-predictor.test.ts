@@ -1,4 +1,4 @@
-import ep, {PredictionResult} from "../src";
+import ep, {PredictionResult} from "../src/element-predictor";
 
 let resultSelector: string;
 document.body.style.margin = "0";

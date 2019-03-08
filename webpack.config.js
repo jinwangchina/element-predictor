@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/element-predictor.ts",
   output: {
     path: path.resolve( __dirname, "dist/umd" ),
-    filename: "element-predictor.js",
+    filename: "element-predictor.min.js",
     library: "elementPredictor",
     libraryTarget: "umd"
   },

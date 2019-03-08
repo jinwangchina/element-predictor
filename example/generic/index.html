@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element Predictor - Example</title>
+    <style>
+        .item {
+            display: inline-block;
+            position: fixed;
+            background-color: burlywood;
+            width: 50px;
+            height: 50px;
+        }
+        
+        #topLeft {
+            left: 0;
+            top: 0;
+        }
+        
+        #topRight {
+            right: 0;
+            top: 0;
+        }
+        
+        #center {
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+        }
+
+        #bottomLeft {
+            left: 0;
+            bottom: 0;
+        }
+
+        #bottomRight {
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="topLeft" class="item"></div>
+<div id="topRight" class="item"></div>
+
+<div id="center" class="item"></div>
+
+<div id="bottomLeft" class="item"></div>
+<div id="bottomRight" class="item"></div>
+    
+<script src="https://unpkg.com/@jinwangchina/element-predictor"></script>
+<script>
+    var ep = elementPredictor.default;
+
+    var elementSelectors = [ "#topLeft", "#topRight", "#center", "#bottomLeft", "#bottomRight" ];
+
+    ep.setup( {
+        elementSelectors,
+        handler: function( result ) {
+            if ( result ) {
+                var element = result.element;
+                element.style.border = "2px solid";
+            } else {
+                elementSelectors.filter( selector => {
+                    var element = document.querySelector( selector );
+                    element.style.border = "none";
+                } );
+            }
+        }
+    } );
+
+    ep.start();
+</script>
+
+</body>
+</html>

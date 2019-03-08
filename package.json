@@ -18,8 +18,8 @@
     "url": "https://github.com/jinwangchina/element-predictor/issues"
   },
   "main": "dist/commonjs/element-predictor.js",
-  "browser": "dist/umd/element-predictor.js",
-  "unpkg": "dist/umd/element-predictor.js",
+  "browser": "dist/umd/element-predictor.min.js",
+  "unpkg": "dist/umd/element-predictor.min.js",
   "typings": "dist/commonjs/element-predictor.d.ts",
   "publishConfig": {
     "access": "public"

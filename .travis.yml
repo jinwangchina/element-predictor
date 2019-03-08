@@ -1,13 +1,13 @@
 language: node_js
 
 node_js:
-  - 11
+  - "11.10.1"
 
 jobs:
   include:
     # Define the release stage that runs semantic-release
     - stage: release
-      node_js: 11
+      node_js: "11.10.1"
       # Advanced: optionally overwrite your default `script` step to skip the tests
       # script: skip
       deploy:
